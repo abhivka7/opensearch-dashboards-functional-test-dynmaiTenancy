@@ -100,7 +100,9 @@ Cypress.Commands.add('deleteAllIndices', () => {
   cy.log('Deleting all indices');
   cy.request(
     'DELETE',
-    `${Cypress.env('openSearchUrl')}/index*,sample*,opensearch_dashboards*`
+    `${Cypress.env(
+      'openSearchUrl'
+    )}/index*,sample*,opensearch_dashboards*,test*,cypress*`
   );
 });
 
@@ -125,6 +127,16 @@ Cypress.Commands.add('createIndexTemplate', (name, template) => {
   cy.request(
     'PUT',
     `${Cypress.env('openSearchUrl')}${IM_API.INDEX_TEMPLATE_BASE}/${name}`,
+    template
+  );
+});
+
+Cypress.Commands.add('createTemplateComponent', (name, template) => {
+  cy.request(
+    'PUT',
+    `${Cypress.env('openSearchUrl')}${
+      IM_API.INDEX_TEMPLATE_COMPONENT_BASE
+    }/${name}`,
     template
   );
 });

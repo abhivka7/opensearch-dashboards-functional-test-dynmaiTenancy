@@ -69,6 +69,12 @@ const plugins = {
       ],
     },
   },
+  'ml-commons-dashboards': {
+    name: 'mlCommonsDashboards',
+    default: {
+      videos: ['overview_spec.js'],
+    },
+  },
   'notifications-dashboards': {
     name: 'notificationsDashboards',
     default: {
@@ -129,7 +135,12 @@ const plugins = {
   'security-analytics-dashboards-plugin': {
     name: 'securityAnalyticsDashboards',
     default: {
-      videos: ['rules_spec.js'],
+      videos: [
+        '1_detectors.spec.js',
+        '2_rules.spec.js',
+        '3_alerts.spec.js',
+        '4_findings.spec.js',
+      ],
     },
   },
 };

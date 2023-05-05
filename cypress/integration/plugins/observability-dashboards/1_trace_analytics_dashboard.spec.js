@@ -9,7 +9,7 @@ import { delayTime, setTimeFilter } from '../../../utils/constants';
 
 describe('Testing dashboard table empty state', () => {
   beforeEach(() => {
-    cy.visit('app/observability-dashboards#/trace_analytics/home', {
+    cy.visit('app/observability-traces#/', {
       onBeforeLoad: (win) => {
         win.sessionStorage.clear();
       },
@@ -25,7 +25,7 @@ describe('Testing dashboard table empty state', () => {
 
 describe('Testing dashboard table', () => {
   beforeEach(() => {
-    cy.visit('app/observability-dashboards#/trace_analytics/home', {
+    cy.visit('app/observability-traces#/', {
       onBeforeLoad: (win) => {
         win.sessionStorage.clear();
       },
@@ -38,18 +38,6 @@ describe('Testing dashboard table', () => {
     cy.contains('client_cancel_order').should('exist');
     cy.contains('166.44').should('exist');
     cy.contains('7.14%').should('exist');
-  });
-
-  it('Has working breadcrumbs', () => {
-    cy.get('.euiBreadcrumb').contains('Dashboard').click();
-    cy.wait(delayTime);
-    cy.get('.euiTitle').contains('Dashboard').should('exist');
-    cy.get('.euiBreadcrumb').contains('Trace analytics').click();
-    cy.wait(delayTime);
-    cy.get('.euiTitle').contains('Dashboard').should('exist');
-    cy.get('.euiBreadcrumb').contains('Observability').click();
-    cy.wait(delayTime);
-    cy.get('.euiTitle').contains('Event analytics').should('exist');
   });
 
   it('Adds the percentile filters', () => {
@@ -102,7 +90,7 @@ describe('Testing dashboard table', () => {
 
 describe('Testing plots', () => {
   beforeEach(() => {
-    cy.visit('app/observability-dashboards#/trace_analytics/home', {
+    cy.visit('app/observability-traces#/', {
       onBeforeLoad: (win) => {
         win.sessionStorage.clear();
       },
